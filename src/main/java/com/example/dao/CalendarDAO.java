@@ -17,7 +17,7 @@ public class CalendarDAO {
     JdbcTemplate jdbcTemplate;
 
     public int insertCalendar(CalendarVO vo) {
-        String sql = "insert into Calendar (title, writer, content, category) values ("
+        String sql = "insert into Calendar (schedule_name, writer, content, start_date, end_date, voting_status) values ("
                 + "'" + vo.getSchedule_name() + "',"
                 + "'" + vo.getWriter() + "',"
                 + "'" + vo.getContent() + "',"
@@ -38,8 +38,8 @@ public class CalendarDAO {
                 + "content = '" + vo.getContent() + "',"
                 + "start_date = '" + vo.getStart_date() + "',"
                 + "end_date = '" + vo.getEnd_date() + "',"
-                + "user_like = '" + vo.getUser_like() + "',"
-                + "user_dislike = '" + vo.getUser_dislike() + "',"
+                //+ "user_like = '" + vo.getUser_like() + "',"
+                //+ "user_dislike = '" + vo.getUser_dislike() + "',"
                 + "voting_status = '" + vo.getVoting_status() + "' where seq =" + vo.getSeq();
         return jdbcTemplate.update(sql);
     }
@@ -52,11 +52,11 @@ public class CalendarDAO {
             vo.setSchedule_name(rs.getString("schedule_name"));
             vo.setWriter(rs.getString("writer"));
             vo.setContent(rs.getString("content"));
-            vo.setStart_date(rs.getDate("start_date"));
-            vo.setEnd_date(rs.getDate("end_date"));
+            vo.setStart_date(rs.getString("start_date"));
+            vo.setEnd_date(rs.getString("end_date"));
             vo.setUser_like(rs.getInt("user_like"));
             vo.setUser_dislike(rs.getInt("user_dislike"));
-            vo.setVoting_status(rs.getBoolean("voting_status"));
+            vo.setVoting_status(rs.getInt("voting_status"));
             return vo;
         }
     }

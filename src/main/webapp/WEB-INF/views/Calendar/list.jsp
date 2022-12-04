@@ -68,7 +68,10 @@
                 <td>${u.end_date}</td>
                 <td>${u.user_like}</td>
                 <td>${u.user_dislike}</td>
-                <td>${u.voting_status}</td>
+                <td><c:choose>
+                    <c:when test="${u.voting_status == 1}">투표 가능</c:when>
+                    <c:when test="${u.voting_status == 0}">투표 불가능</c:when>
+                </c:choose></td>
                 <td><a href="editform/${u.seq}">Schedule Edit</a></td>
                 <td><a href="javascript:delete_ok('${u.seq}')">Schedule Delete</a></td>
             </tr>

@@ -8,13 +8,13 @@ public class CalendarVO {
     private String schedule_name;
     private String writer;
     private String content;
-    private Date start_date;
+    private String start_date;
 
-    private Date end_date;
+    private String end_date;
     private int user_like;
 
     private int user_dislike;
-    private boolean voting_status;
+    private int voting_status;
 
     public int getSeq() {
         return seq;
@@ -36,7 +36,7 @@ public class CalendarVO {
         return writer;
     }
 
-    public void setWriter(String title) {
+    public void setWriter(String writer) {
         this.writer = writer;
     }
 
@@ -48,19 +48,19 @@ public class CalendarVO {
         this.content = content;
     }
 
-    public Date getStart_date() {
+    public String getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(Date start_date) {
+    public void setStart_date(String start_date) {
         this.start_date = start_date;
     }
 
-    public Date getEnd_date() {
+    public String getEnd_date() {
         return end_date;
     }
 
-    public void setEnd_date(Date end_date) {
+    public void setEnd_date(String end_date) {
         this.end_date = end_date;
     }
 
@@ -80,11 +80,11 @@ public class CalendarVO {
         this.user_dislike = user_dislike;
     }
 
-    public boolean getVoting_status() {
+    public int getVoting_status() {
         return voting_status;
     }
 
-    public void setVoting_status(boolean voting_status) {
+    public void setVoting_status(int voting_status) {
         this.voting_status = voting_status;
     }
 }
