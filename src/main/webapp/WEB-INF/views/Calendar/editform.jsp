@@ -18,12 +18,12 @@
 <body>
 
 <h1>Edit Form</h1>
-<form:form modelAttribute="u" method="POST" action="../editok" onsubmit="return validateForm()">
+<form:form modelAttribute="u" method="POST"  name="editSchedule" action="../editok" onsubmit="return validateForm()">
     <form:hidden path="seq"/>
     <table id="edit">
         <tr>
             <td>Schedule Name:</td>
-            <td><form:input path="schedule_name" name="schedule_name"/></td>
+            <td><form:input path="schedule_name" name="schedule_name" /></td>
         </tr>
         <tr>
             <td>Writer:</td>
@@ -52,34 +52,34 @@
 </form:form>
 <script>
     function validateForm() {
-        const schedule_name = document.addSchedule.schedule_name;
+        const schedule_name = document.editSchedule.schedule_name;
         if (schedule_name.value == "") {
             alert("일정 이름을 입력하세요");
             schedule_name.focus();
             return false;
         }
 
-        const writer = document.addSchedule.writer;
+        const writer = document.editSchedule.writer;
         if (writer.value == "") {
             alert("작성자명을 입력하세요")
             writer.focus();
             return false;
         }
 
-        const content = document.addSchedule.content;
+        const content = document.editSchedule.content;
         if (content.value == "") {
             alert("일정 내용을 입력하세요")
             content.focus();
             return false;
         }
 
-        const start_date = document.addSchedule.start_date;
+        const start_date = document.editSchedule.start_date;
         if (start_date.value == "") {
             alert("시작일을 입력하세요")
             return false;
         }
 
-        const end_date = document.addSchedule.end_date;
+        const end_date = document.editSchedule.end_date;
         if (end_date.value == "") {
             alert("마감일를 입력하세요")
             end_date.focus();

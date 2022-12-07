@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.vo.CalendarVO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -11,6 +12,39 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Repository
+public class CalendarDAO {
+    @Autowired
+    SqlSession sqlSession;
+
+    public int insertCalendar(CalendarVO vo) {
+        int result = sqlSession.insert("Calendar.insertCalendar", vo);
+        return result;
+    }
+
+    public int deleteCalendar(int seq) {
+        int result = sqlSession.delete("Calendar.deleteCalendar", seq);
+        return result;
+    }
+
+    public int updateCalendar(CalendarVO vo) {
+        int result = sqlSession.update("Calendar.updateCalendar", vo);
+        return result;
+    }
+
+    public CalendarVO getCalendar(int seq) {
+        CalendarVO one = sqlSession.selectOne("Calendar.getCalendar", seq);
+        return one;
+    }
+
+    public List<CalendarVO> getCalendarList() {
+        List<CalendarVO> list = sqlSession.selectList("Calendar.getCalendarList");
+        return list;
+    }
+}
+
+
+/*
 @Repository
 public class CalendarDAO {
     @Autowired
@@ -71,3 +105,4 @@ public class CalendarDAO {
         return jdbcTemplate.query(sql, new CalendarRowMapper());
     }
 }
+ */

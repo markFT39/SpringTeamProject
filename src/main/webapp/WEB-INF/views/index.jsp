@@ -13,7 +13,7 @@
 <body>
     <div class="my-div">
         <h1>안녕하세요!</h1>
-        <P><a href="Calendar/list">캘린더로 이동하기</a></P>
+        <P><a href="login/login">캘린더로 이동하기</a></P>
     </div>
 </body>
 </html>

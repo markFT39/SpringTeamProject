@@ -1,6 +1,8 @@
 package com.example;
 
+import com.example.dao.UserDAO;
 import com.example.vo.CalendarVO;
+import com.example.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +18,9 @@ public class CalendarController {
     CalendarServiceImpl CalendarService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String Calendarlist(Model model) {
+    public String Calendarlist(Model model, Model model2, UserVO vo) {
         model.addAttribute("list", CalendarService.getCalendarList());
+        model2.addAttribute("account", vo.getUserid());
         return "Calendar/list";
     }
 

@@ -9,10 +9,8 @@ public class CalendarVO {
     private String writer;
     private String content;
     private String start_date;
-
     private String end_date;
     private int user_like;
-
     private int user_dislike;
     private int voting_status;
 

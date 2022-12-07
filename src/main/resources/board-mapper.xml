@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Calendar">
+    <insert id="insertCalendar">
+        insert into Calendar (schedule_name, writer, content, start_date, end_date, voting_status)
+        values
+        (#{schedule_name} , #{writer} , #{content} , #{start_date} , #{end_date} , #{voting_status})
+    </insert>
+    <update id="updateCalendar">
+        update Calendar
+        set schedule_name=#{schedule_name}, writer=#{writer}, content=#{content}, start_date=#{start_date}, end_date=#{end_date}, voting_status=#{voting_status}
+        where seq=#{seq}
+    </update>
+    <delete id="deleteCalendar">
+        delete from Calendar where seq=#{seq}
+    </delete>
+    <select id="getCalendar" resultType="Calendar">
+        select * from Calendar where seq=#{seq}
+    </select>
+    <select id="getCalendarList" resultType="Calendar">
+        select * from Calendar order by seq desc
+    </select>
+</mapper>

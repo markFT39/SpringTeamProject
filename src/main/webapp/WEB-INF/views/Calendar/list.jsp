@@ -43,6 +43,7 @@
 </head>
 <body>
 <h1>Calendar Service</h1>
+<a href="../login/logout">로그아웃</a>
     <table id="list" width="90%">
         <tr>
             <th>No.</th>
@@ -72,7 +73,11 @@
                     <c:when test="${u.voting_status == 1}">투표 가능</c:when>
                     <c:when test="${u.voting_status == 0}">투표 불가능</c:when>
                 </c:choose></td>
-                <td><a href="editform/${u.seq}">Schedule Edit</a></td>
+                <td><c:choose>
+                    <c:when test="${account == 'admin'}"><a href="editform/${u.seq}">Schedule Edit</a></c:when>
+                    <c:when test="${account != 'admin'}"><a href="editform/${u.seq}">${account}</a></c:when>
+                </c:choose>
+                    </td>
                 <td><a href="javascript:delete_ok('${u.seq}')">Schedule Delete</a></td>
             </tr>
         </c:forEach>
