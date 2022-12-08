@@ -1,10 +1,10 @@
 package com.example.vo;
 
 public class UserVO {
-    private String userid;
+    private static String userid;
     private String password;
     private String username;
-    public String getUserid() {
+    public static String getUserid() {
         return userid;
     }
     public void setUserid(String userid) {

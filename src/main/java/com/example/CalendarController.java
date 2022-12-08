@@ -18,9 +18,10 @@ public class CalendarController {
     CalendarServiceImpl CalendarService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String Calendarlist(Model model, Model model2, UserVO vo) {
+    public String Calendarlist(Model model, Model model2) {
         model.addAttribute("list", CalendarService.getCalendarList());
-        model2.addAttribute("account", vo.getUserid());
+        String userid = UserVO.getUserid();
+        model2.addAttribute("account", userid);
         return "Calendar/list";
     }
 

@@ -43,6 +43,7 @@
 </head>
 <body>
 <h1>Calendar Service</h1>
+<p>${account}님 안녕하세요!</p>
 <a href="../login/logout">로그아웃</a>
     <table id="list" width="90%">
         <tr>
@@ -74,8 +75,8 @@
                     <c:when test="${u.voting_status == 0}">투표 불가능</c:when>
                 </c:choose></td>
                 <td><c:choose>
-                    <c:when test="${account == 'admin'}"><a href="editform/${u.seq}">Schedule Edit</a></c:when>
-                    <c:when test="${account != 'admin'}"><a href="editform/${u.seq}">${account}</a></c:when>
+                    <c:when test="${account == u.writer}"><a href="editform/${u.seq}">Schedule Edit</a></c:when>
+                    <c:when test="${account != u.writer}">${account} + 작성자가 아닙니당</c:when>
                 </c:choose>
                     </td>
                 <td><a href="javascript:delete_ok('${u.seq}')">Schedule Delete</a></td>
