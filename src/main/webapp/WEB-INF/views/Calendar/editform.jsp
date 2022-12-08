@@ -18,28 +18,28 @@
 <body>
 
 <h1>Edit Form</h1>
-<form:form modelAttribute="u" method="POST"  name="editSchedule" action="../editok" onsubmit="return validateForm()">
+<form:form modelAttribute="u" method="POST" id="editSchedule" action="../editok" onsubmit="return validateFormEdit()">
     <form:hidden path="seq"/>
     <table id="edit">
         <tr>
             <td>Schedule Name:</td>
-            <td><form:input path="schedule_name" name="schedule_name" /></td>
+            <td><form:input path="schedule_name" id="schedule_name" name="schedule_name" /></td>
         </tr>
         <tr>
             <td>Writer:</td>
-            <td><form:input path="writer" name="writer"/></td>
+            <td><form:input path="writer" id="writer" name="writer"/></td>
         </tr>
         <tr>
             <td>Content:</td>
-            <td><form:textarea cols="50" rows="5" path="content" name="content"></form:textarea></td>
+            <td><form:textarea cols="50" rows="5" path="content" id="content" name="content"></form:textarea></td>
         </tr>
         <tr>
             <td>Start Date:</td>
-            <td><form:input type="date" path="start_date" name="start_date"/></td>
+            <td><form:input type="date" path="start_date" id="start_date" name="start_date"/></td>
         </tr>
         <tr>
             <td>End Date:</td>
-            <td><form:input type="date" path="end_date" name="end_date"/></td>
+            <td><form:input type="date" path="end_date" id="end_date" name="end_date"/></td>
         </tr>
         <tr>
             <td>Allowing Voting:</td>
@@ -51,36 +51,37 @@
     <button type="submit">Edit Schedule</button>
 </form:form>
 <script>
-    function validateForm() {
-        const schedule_name = document.editSchedule.schedule_name;
-        if (schedule_name.value == "") {
+    function validateFormEdit() {
+        const edit = document.getElementById("editSchedule");
+        const schedule_name = edit["schedule_name"];
+        if (schedule_name.value() == null || schedule_name.value() === "") {
             alert("일정 이름을 입력하세요");
             schedule_name.focus();
             return false;
         }
 
-        const writer = document.editSchedule.writer;
-        if (writer.value == "") {
+        const writer = edit["writer"].value();
+        if (writer.value === "") {
             alert("작성자명을 입력하세요")
             writer.focus();
             return false;
         }
 
-        const content = document.editSchedule.content;
-        if (content.value == "") {
+        const content = edit["content"].value();
+        if (content.value === "") {
             alert("일정 내용을 입력하세요")
             content.focus();
             return false;
         }
 
-        const start_date = document.editSchedule.start_date;
-        if (start_date.value == "") {
+        const start_date = edit["start_date"].value();
+        if (start_date.value === "") {
             alert("시작일을 입력하세요")
             return false;
         }
 
-        const end_date = document.editSchedule.end_date;
-        if (end_date.value == "") {
+        const end_date = edit["end_date"].value();
+        if (end_date.value === "") {
             alert("마감일를 입력하세요")
             end_date.focus();
             return false;

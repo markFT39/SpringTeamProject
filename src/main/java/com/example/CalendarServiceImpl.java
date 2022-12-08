@@ -26,6 +26,11 @@ public class CalendarServiceImpl implements CalendarService {
     }
 
     @Override
+    public int likeCalendar(int seq) { return CalendarDAO.likeCalendar(seq);}
+
+    @Override
+    public int dislikeCalendar(int seq) { return CalendarDAO.dislikeCalendar(seq);}
+    @Override
     public CalendarVO getCalendar(int seq) {
         return CalendarDAO.getCalendar(seq);
     }

@@ -11,6 +11,12 @@
         set schedule_name=#{schedule_name}, writer=#{writer}, content=#{content}, start_date=#{start_date}, end_date=#{end_date}, voting_status=#{voting_status}
         where seq=#{seq}
     </update>
+    <update id="likeCalendar">
+        update Calendar set user_like = user_like + 1 where seq=#{seq};
+    </update>
+    <update id="dislikeCalendar">
+        update Calendar set user_dislike= user_dislike + 1 where seq=#{seq}
+    </update>
     <delete id="deleteCalendar">
         delete from Calendar where seq=#{seq}
     </delete>

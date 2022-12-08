@@ -32,6 +32,16 @@ public class CalendarDAO {
         return result;
     }
 
+    public int likeCalendar(int seq) {
+        int result = sqlSession.update("Calendar.likeCalendar", seq);
+        return result;
+    }
+
+    public int dislikeCalendar(int seq) {
+        int result = sqlSession.update("Calendar.dislikeCalendar", seq);
+        return result;
+    }
+
     public CalendarVO getCalendar(int seq) {
         CalendarVO one = sqlSession.selectOne("Calendar.getCalendar", seq);
         return one;

@@ -4,6 +4,7 @@ import com.example.dao.UserDAO;
 import com.example.vo.CalendarVO;
 import com.example.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,6 +54,24 @@ public class CalendarController {
         else
             System.out.println("데이터 수정 성공");
         return "redirect:list";
+    }
+
+    @RequestMapping(value="/likeCalendar/{id}", method = RequestMethod.GET)
+    public String likeCalendar(@PathVariable("id") int id) {
+        if (CalendarService.likeCalendar(id) == 0)
+            System.out.println("추천 수정 실패 ");
+        else
+            System.out.println("추천 수정 성공");
+        return "redirect:../list";
+    }
+
+    @RequestMapping(value="/dislikeCalendar/{id}", method = RequestMethod.GET)
+    public String dislikeCalendar(@PathVariable("id") int id) {
+        if (CalendarService.dislikeCalendar(id) == 0)
+            System.out.println("비추천 수정 실패 ");
+        else
+            System.out.println("비추천 수정 성공");
+        return "redirect:../list";
     }
 
     @RequestMapping(value = "/deleteok/{id}", method = RequestMethod.GET)

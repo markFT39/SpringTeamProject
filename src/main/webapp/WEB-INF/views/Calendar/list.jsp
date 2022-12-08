@@ -56,8 +56,8 @@
             <th>Like</th>
             <th>Dislike</th>
             <th>Voting Status</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Like(Edit)</th>
+            <th>Dislike(Delete)</th>
         </tr>
 
         <c:forEach items="${list}" var="u" varStatus="status">
@@ -76,10 +76,17 @@
                 </c:choose></td>
                 <td><c:choose>
                     <c:when test="${account == u.writer}"><a href="editform/${u.seq}">Schedule Edit</a></c:when>
-                    <c:when test="${account != u.writer}">${account} + 작성자가 아닙니당</c:when>
+                    <c:when test="${account != u.writer && u.voting_status == 1}"><a href="likeCalendar/${u.seq}">추천하기</c:when>
+                        <c:otherwise>추천이 불가능합니다.</c:otherwise>
                 </c:choose>
                     </td>
-                <td><a href="javascript:delete_ok('${u.seq}')">Schedule Delete</a></td>
+                <td><c:choose>
+                    <c:when test="${account == u.writer}"><a href="javascript:delete_ok('${u.seq}')">Schedule Delete</a></c:when>
+                    <c:when test="${account != u.writer && u.voting_status == 1}"><a href="dislikeCalendar/${u.seq}">비추천하기</c:when>
+                        <c:otherwise>추천이 불가능합니다.</c:otherwise>
+                </c:choose>
+
+                </td>
             </tr>
         </c:forEach>
     </table>
