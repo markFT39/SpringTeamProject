@@ -25,7 +25,7 @@ public class CalendarController {
     public String Calendarlist(Model model, Model model2) {
         model.addAttribute("list", CalendarService.getCalendarList());
         String userName = UserVO.getUsername();
-        model2.addAttribute("account", userName);
+        model2.addAttribute("userName", userName);
         return "Calendar/list";
     }
 
@@ -46,9 +46,11 @@ public class CalendarController {
     }
 
     @RequestMapping(value = "/editform/{id}", method = RequestMethod.GET)
-    public String editPost(@PathVariable("id") int id, Model model) {
+    public String editPost(@PathVariable("id") int id, Model model, Model model2) {
         CalendarVO CalendarVO = CalendarService.getCalendar(id);
         model.addAttribute("u", CalendarVO);
+        String userName = UserVO.getUsername();
+        model2.addAttribute("userName", userName);
         return "Calendar/editform";
     }
 

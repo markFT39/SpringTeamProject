@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <td>Writer:</td>
-            <td><form:input path="writer" id="writer" name="writer"/></td>
+            <td><form:input path="writer" id="writer" name="writer" value="${userName}" readonly="true"/></td>
         </tr>
         <tr>
             <td>Content:</td>
