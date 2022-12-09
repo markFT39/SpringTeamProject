@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Login page</title>
+  <title>Team project Login page</title>
   <style>
     img, label { display:inline-block;}
     label{ width:130px}

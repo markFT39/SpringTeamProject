@@ -12,7 +12,7 @@
         where seq=#{seq}
     </update>
     <update id="likeCalendar">
-        update Calendar set user_like = user_like + 1 where seq=#{seq};
+        update Calendar set user_like = user_like + 1 where seq=#{seq}
     </update>
     <update id="dislikeCalendar">
         update Calendar set user_dislike= user_dislike + 1 where seq=#{seq}

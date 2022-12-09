@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+         pageEncoding="UTF-8" isELIgnored="false" %>
 
 <!DOCTYPE html>
 <html>
@@ -52,35 +52,37 @@
 </form:form>
 <script>
     function validateFormEdit() {
-        const edit = document.getElementById("editSchedule");
-        const schedule_name = edit["schedule_name"];
-        if (schedule_name.value() == null || schedule_name.value() === "") {
+        /*const edit = document.querySelector("#schedule_name")
+        * console.log(edit.value)
+        * */
+        const schedule_name  = document.getElementById("schedule_name");
+        if (schedule_name.value == null || schedule_name.value === "") {
             alert("일정 이름을 입력하세요");
             schedule_name.focus();
             return false;
         }
 
-        const writer = edit["writer"].value();
+        const writer  = document.getElementById("writer");
         if (writer.value === "") {
             alert("작성자명을 입력하세요")
             writer.focus();
             return false;
         }
 
-        const content = edit["content"].value();
+        const content  = document.getElementById("content");
         if (content.value === "") {
             alert("일정 내용을 입력하세요")
             content.focus();
             return false;
         }
 
-        const start_date = edit["start_date"].value();
+        const start_date  = document.getElementById("start_date");
         if (start_date.value === "") {
             alert("시작일을 입력하세요")
             return false;
         }
 
-        const end_date = edit["end_date"].value();
+        const end_date  = document.getElementById("end_date");
         if (end_date.value === "") {
             alert("마감일를 입력하세요")
             end_date.focus();

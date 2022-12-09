@@ -18,16 +18,21 @@ public class CalendarController {
     @Autowired
     CalendarServiceImpl CalendarService;
 
+    @Autowired
+    UserServiceImpl userService;
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String Calendarlist(Model model, Model model2) {
         model.addAttribute("list", CalendarService.getCalendarList());
-        String userid = UserVO.getUserid();
-        model2.addAttribute("account", userid);
+        String userName = UserVO.getUsername();
+        model2.addAttribute("account", userName);
         return "Calendar/list";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addPost() {
+    public String addPost(Model model) {
+        String userName = UserVO.getUsername();
+        model.addAttribute("userName", userName);
         return "Calendar/addpostform";
     }
 

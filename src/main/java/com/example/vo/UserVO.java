@@ -3,7 +3,7 @@ package com.example.vo;
 public class UserVO {
     private static String userid;
     private String password;
-    private String username;
+    private static String username;
     public static String getUserid() {
         return userid;
     }
@@ -16,7 +16,7 @@ public class UserVO {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getUsername() {
+    public static String getUsername() {
         return username;
     }
     public void setUsername(String username) {

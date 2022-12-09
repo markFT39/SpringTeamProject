@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+         pageEncoding="UTF-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +23,7 @@
         </tr>
         <tr>
             <td>Writer:</td>
-            <td><input type="text" name="writer"/></td>
+            <td><input type="text" name="writer" value="${userName}" readonly/></td>
         </tr>
         <tr>
             <td>Content:</td>
@@ -52,13 +52,6 @@
             if (schedule_name.value == "") {
                 alert("일정 이름을 입력하세요");
                 schedule_name.focus();
-                return false;
-            }
-
-            const writer = document.addSchedule.writer;
-            if (writer.value == "") {
-                alert("작성자명을 입력하세요")
-                writer.focus();
                 return false;
             }
 

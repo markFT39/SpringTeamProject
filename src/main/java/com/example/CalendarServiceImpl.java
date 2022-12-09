@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.dao.CalendarDAO;
+import com.example.dao.UserDAO;
 import com.example.vo.CalendarVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,7 @@ public class CalendarServiceImpl implements CalendarService {
 
     @Override
     public int dislikeCalendar(int seq) { return CalendarDAO.dislikeCalendar(seq);}
+
     @Override
     public CalendarVO getCalendar(int seq) {
         return CalendarDAO.getCalendar(seq);
