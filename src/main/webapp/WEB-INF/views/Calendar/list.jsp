@@ -75,13 +75,13 @@
                     <c:when test="${u.voting_status == 0}">투표 불가능</c:when>
                 </c:choose></td>
                 <td><c:choose>
-                    <c:when test="${userName == u.writer}"><a href="editform/${u.seq}">Schedule Edit</a></c:when>
+                    <c:when test="${userName == u.writer || userName == '관리자'}"><a href="editform/${u.seq}">Schedule Edit</a></c:when>
                     <c:when test="${userName != u.writer && u.voting_status == 1}"><a href="likeCalendar/${u.seq}">추천하기</c:when>
                         <c:otherwise>추천이 불가능합니다.</c:otherwise>
                 </c:choose>
                     </td>
                 <td><c:choose>
-                    <c:when test="${userName == u.writer}"><a href="javascript:delete_ok('${u.seq}')">Schedule Delete</a></c:when>
+                    <c:when test="${userName == u.writer || userName == '관리자'}"><a href="javascript:delete_ok('${u.seq}')">Schedule Delete</a></c:when>
                     <c:when test="${userName != u.writer && u.voting_status == 1}"><a href="dislikeCalendar/${u.seq}">비추천하기</c:when>
                         <c:otherwise>추천이 불가능합니다.</c:otherwise>
                 </c:choose>
