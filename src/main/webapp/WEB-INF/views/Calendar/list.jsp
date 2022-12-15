@@ -45,6 +45,18 @@
 <h1>Calendar Service</h1>
 <p>${userName}님 안녕하세요!</p>
 <a href="../login/logout">로그아웃</a>
+<form action="userList", method="post">
+    <table>
+        <tr>
+            <td>사용자 검색:</td>
+            <td><input type="text" name="user_name"/></td>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+    <button type="submit">검색하기</button>
+    <button type="button" onclick="location.href='list'">검색 조건 초기화</button>
+</form>
     <table id="list" width="90%">
         <tr>
             <th>No.</th>

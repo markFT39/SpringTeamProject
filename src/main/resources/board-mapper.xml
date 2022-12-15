@@ -26,4 +26,7 @@
     <select id="getCalendarList" resultType="Calendar">
         select * from Calendar order by seq desc
     </select>
+    <select id="getUserList" resultType="Calendar">
+        select * from Calendar where writer=#{writer} order by seq desc
+    </select>
 </mapper>

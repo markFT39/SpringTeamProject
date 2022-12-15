@@ -29,6 +29,14 @@ public class CalendarController {
         return "Calendar/list";
     }
 
+    @RequestMapping(value = "/userList", method = RequestMethod.POST)
+    public String CalendarUserList(Model model, Model model2, String user_name) {
+        model.addAttribute("list", CalendarService.getUserList(user_name));
+        String userName = UserVO.getUsername();
+        model2.addAttribute("userName", userName);
+        return "Calendar/list";
+    };
+
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPost(Model model) {
         String userName = UserVO.getUsername();
