@@ -51,42 +51,39 @@
             <th>Schedule Name</th>
             <th>Writer</th>
             <th>Content</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Like</th>
-            <th>Dislike</th>
+            <th>Date</th>
+            <th>Vote</th>
             <th>Voting Status</th>
-            <th>Like(Edit)</th>
-            <th>Dislike(Delete)</th>
+            <th>Like / Dislike</th>
+            <th>Edit / Delete</th>
         </tr>
 
         <c:forEach items="${list}" var="u" varStatus="status">
             <tr>
                 <td>${fn:length(list)-status.index}</td>
-                <td>${u.schedule_name}</td>
+                <td><a href="view/${u.getSeq()}">${u.schedule_name}</a></td>
                 <td>${u.writer}</td>
                 <td>${u.content}</td>
-                <td>${u.start_date}</td>
-                <td>${u.end_date}</td>
-                <td>${u.user_like}</td>
-                <td>${u.user_dislike}</td>
+                <td>${u.start_date} ~ ${u.end_date}</td>
+                <td>${u.user_like} : ${u.user_dislike}</td>
                 <td><c:choose>
                     <c:when test="${u.voting_status == 1}">투표 가능</c:when>
                     <c:when test="${u.voting_status == 0}">투표 불가능</c:when>
                 </c:choose></td>
                 <td><c:choose>
                     <c:when test="${userName == u.writer || userName == '관리자'}"><a href="editform/${u.seq}">Schedule Edit</a></c:when>
-                    <c:when test="${userName != u.writer && u.voting_status == 1}"><a href="likeCalendar/${u.seq}">추천하기</c:when>
-                        <c:otherwise>추천이 불가능합니다.</c:otherwise>
+                    <c:when test="${userName != u.writer && u.voting_status == 1}"><a href="likeCalendar/${u.seq}">추천하기 / </c:when>
+                        <%-- <c:otherwise>추천이 불가능합니다.</c:otherwise> --%>
                 </c:choose>
-                    </td>
-                <td><c:choose>
+                        <c:choose>
                     <c:when test="${userName == u.writer || userName == '관리자'}"><a href="javascript:delete_ok('${u.seq}')">Schedule Delete</a></c:when>
                     <c:when test="${userName != u.writer && u.voting_status == 1}"><a href="dislikeCalendar/${u.seq}">비추천하기</c:when>
                         <c:otherwise>추천이 불가능합니다.</c:otherwise>
                 </c:choose>
-
                 </td>
+                <td><a href="editform/${u.seq}">Edit</a>
+                /
+                    <a href="javascript:delete_ok('${u.seq}')">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
