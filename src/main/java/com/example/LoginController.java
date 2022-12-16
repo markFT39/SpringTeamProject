@@ -19,6 +19,11 @@ public class LoginController {
         return "login/login";
     }
 
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String signup() {
+        return "login/signup";
+    }
+
     @RequestMapping(value="/loginOk", method=RequestMethod.POST)
     public String loginCheck(HttpSession session, UserVO vo){
         String returnURL = "";
@@ -34,6 +39,27 @@ public class LoginController {
         }else { // 로그인 실패
             System.out.println("로그인 실패!");
             returnURL = "redirect:/login/login";
+        }
+        return returnURL;
+    }
+
+    @RequestMapping(value="/signupOk", method=RequestMethod.POST)
+    public String signupCheck(HttpSession session, UserVO vo){
+        String returnURL = "";
+        if (session.getAttribute("signup") != null ){
+            session.removeAttribute("signup");
+        }
+
+        System.out.println("id 췍");
+        UserVO signinvo = service.useridCheck(vo);
+        if (signinvo == null){ // 회원가입 성공
+            System.out.println("id 등록 실행");
+            service.addUser(vo);
+            System.out.println("회원가입 성공!");
+            returnURL = "redirect:/login/login";
+        }else { // 회원가입 실패
+            System.out.println("회원가입 실패!");
+            returnURL = "redirect:/login/signup";
         }
         return returnURL;
     }

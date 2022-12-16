@@ -19,6 +19,7 @@
     <div><label>Password: </label>
       <input type='password' name='password' /></div>
     <button type='submit'>login</button>
+    <button type="button" onclick="location.href='signup'"> Register </button>
   </form>
 </div>
 </body>
