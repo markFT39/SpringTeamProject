@@ -46,6 +46,11 @@ public class CalendarDAO {
         List<CalendarVO> list = sqlSession.selectList("Calendar.getCalendarList");
         return list;
     }
+    
+    public List<CalendarVO> getUserList(String writer) {
+        List<CalendarVO> list = sqlSession.selectList("Calendar.getUserList", writer);
+        return list;
+    }
 
 //    public static String getPhotoFilename(int seq) {
 //        String filename = null;

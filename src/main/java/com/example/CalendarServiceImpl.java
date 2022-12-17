@@ -1,7 +1,6 @@
 package com.example;
 
 import com.example.dao.CalendarDAO;
-import com.example.dao.UserDAO;
 import com.example.vo.CalendarVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,4 +40,7 @@ public class CalendarServiceImpl implements CalendarService {
     public List<CalendarVO> getCalendarList() {
         return CalendarDAO.getCalendarList();
     }
+
+    @Override
+    public List<CalendarVO> getUserList(String writer) {return CalendarDAO.getUserList(writer);}
 }

@@ -12,4 +12,5 @@ public interface CalendarService {
     public int dislikeCalendar(int seq);
     public CalendarVO getCalendar(int seq);
     public List<CalendarVO> getCalendarList();
+    public List<CalendarVO> getUserList(String writer);
 }
