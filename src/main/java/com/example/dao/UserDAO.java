@@ -12,4 +12,9 @@ public class UserDAO {
     public UserVO getUser(UserVO vo) {
         return sqlSession.selectOne("User.getUser", vo);
     }
+
+    public UserVO useridCheck(UserVO vo) { return sqlSession.selectOne("User.useridCheck", vo); }
+
+    public int addUser(UserVO vo) { return sqlSession.insert("User.addUser", vo); }
+
 }

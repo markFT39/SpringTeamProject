@@ -33,6 +33,10 @@
             <td>Content:</td>
             <td><form:textarea cols="50" rows="5" path="content" id="content" name="content"></form:textarea></td>
         </tr>
+<%--        <tr>--%>
+<%--            <td>Photo:</td>--%>
+<%--            <td><input type="file" name="photo" value="${u.getPhoto()}"/><c:if test="${vo.getPhoto() ne ''}"><br /><img src="${pageContext.request.contextPath}/upload/${vo.getPhoto()}" class="photo"></c:if></td>--%>
+<%--        </tr>--%>
         <tr>
             <td>Start Date:</td>
             <td><form:input type="date" path="start_date" id="start_date" name="start_date"/></td>

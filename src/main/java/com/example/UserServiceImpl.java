@@ -12,4 +12,8 @@ public class UserServiceImpl {
     public UserVO getUser(UserVO vo) {
         return userDAO.getUser(vo);
     }
+
+    public int addUser(UserVO vo) { return userDAO.addUser(vo); }
+
+    public UserVO useridCheck(UserVO vo) { return userDAO.useridCheck(vo); };
 }

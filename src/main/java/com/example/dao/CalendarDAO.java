@@ -3,13 +3,8 @@ package com.example.dao;
 import com.example.vo.CalendarVO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -51,11 +46,23 @@ public class CalendarDAO {
         List<CalendarVO> list = sqlSession.selectList("Calendar.getCalendarList");
         return list;
     }
-
+    
     public List<CalendarVO> getUserList(String writer) {
         List<CalendarVO> list = sqlSession.selectList("Calendar.getUserList", writer);
         return list;
     }
+
+//    public static String getPhotoFilename(int seq) {
+//        String filename = null;
+//        try {
+//            CalendarVO one = sqlSession.selectOne("Calendar.getCalendar", seq);
+//            filename = one.getPhoto();
+//        } catch(Exception e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println("===> JDBC로 getPhotoFilename() 기능 처리");
+//        return filename;
+//    }
 }
 
 
