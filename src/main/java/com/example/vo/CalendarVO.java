@@ -13,6 +13,15 @@ public class CalendarVO {
     private int user_like;
     private int user_dislike;
     private int voting_status;
+    private String photo;
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
     public int getSeq() {
         return seq;

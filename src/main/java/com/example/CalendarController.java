@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.dao.CalendarDAO;
 import com.example.dao.UserDAO;
 import com.example.vo.CalendarVO;
 import com.example.vo.UserVO;
@@ -91,7 +92,8 @@ public class CalendarController {
     }
 
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
-    public String view(@PathVariable("id") int id) {
+    public String view(@PathVariable("id") int id, Model model) {
+
         return "Calendar/view";
     }
 

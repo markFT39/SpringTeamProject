@@ -29,6 +29,10 @@
             <td>Content:</td>
             <td><textarea cols="50" rows="5" name="content"></textarea></td>
         </tr>
+<%--        <tr>--%>
+<%--            <td>Photo: </td>--%>
+<%--            <td><input type="file" name="photo"/></td>--%>
+<%--        </tr>--%>
         <tr>
             <td>Start Date:</td>
             <td><input type="date" name="start_date" pattern="yyyy-MM-dd"/></td>
