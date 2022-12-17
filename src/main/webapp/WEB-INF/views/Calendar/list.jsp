@@ -50,10 +50,7 @@
 <form action="userList", method="post">
     <table>
         <tr>
-            <td>사용자 검색:</td>
-            <td><input type="text" name="user_name"/></td>
-        </tr>
-        <tr>
+            <td>사용자 검색: <input type="text" name="user_name"/></td>
         </tr>
     </table>
     <button type="submit">검색하기</button>
@@ -68,7 +65,7 @@
             <th>Content</th>
 <%--            <th>Photo</th>--%>
             <th>Date</th>
-            <th>Vote</th>
+            <th>Vote(추천:비추천)</th>
             <th>Voting Status</th>
             <th>Like / Dislike</th>
         </tr>
@@ -87,12 +84,12 @@
                     <c:when test="${u.voting_status == 0}">투표 불가능</c:when>
                 </c:choose></td>
                 <td><c:choose>
-                    <c:when test="${userName == u.writer || userName == '관리자'}"><a href="editform/${u.seq}">Schedule Edit / </a></c:when>
+                    <c:when test="${userName == u.writer || userName == '관리자'}"><a href="editform/${u.seq}">일정 수정하기 / </a></c:when>
                     <c:when test="${userName != u.writer && u.voting_status == 1}"><a href="likeCalendar/${u.seq}">추천하기 / </c:when>
                         <%-- <c:otherwise>추천이 불가능합니다.</c:otherwise> --%>
                 </c:choose>
                         <c:choose>
-                    <c:when test="${userName == u.writer || userName == '관리자'}"><a href="javascript:delete_ok('${u.seq}')">Schedule Delete</a></c:when>
+                    <c:when test="${userName == u.writer || userName == '관리자'}"><a href="javascript:delete_ok('${u.seq}')">일정 삭제하기</a></c:when>
                     <c:when test="${userName != u.writer && u.voting_status == 1}"><a href="dislikeCalendar/${u.seq}">비추천하기</c:when>
                         <c:otherwise>추천이 불가능합니다.</c:otherwise>
                 </c:choose>

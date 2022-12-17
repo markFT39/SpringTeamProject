@@ -83,7 +83,7 @@
             const date2 = new Date(end_date.value);
 
             if (date1 > date2) {
-                alert("시작일이 마감일보다 뒤에 있습니다!")
+                alert("시작일이 마감일보다 뒤에 있습니다.")
                 start_date.focus();
                 return false;
             }

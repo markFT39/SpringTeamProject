@@ -101,7 +101,8 @@ public class CalendarController {
 
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable("id") int id, Model model) {
-
+        CalendarVO CalendarVO = CalendarService.getCalendar(id);
+        model.addAttribute("u", CalendarVO);
         return "Calendar/view";
     }
 
